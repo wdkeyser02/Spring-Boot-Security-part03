@@ -2,6 +2,7 @@ package willydekeyser.springbootsecuritypart03.config;
 
 import org.jspecify.annotations.Nullable;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.Assert;
 
 public class CustomPasswordEncoder implements PasswordEncoder {
 
@@ -14,7 +15,7 @@ public class CustomPasswordEncoder implements PasswordEncoder {
     @Override
     public boolean matches(@Nullable CharSequence rawPassword, @Nullable String encodedPassword) {
         String hashedPassword = encode(rawPassword);
-        assert hashedPassword != null;
+        Assert.notNull(hashedPassword, "Password cannot be null!");
         return hashedPassword.equals(encodedPassword);
     }
 
