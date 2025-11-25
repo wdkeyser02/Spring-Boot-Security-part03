@@ -4,6 +4,7 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class CustomPasswordEncoder implements PasswordEncoder {
+
     @Override
     public @Nullable String encode(@Nullable CharSequence rawPassword) {
         String password = String.valueOf(rawPassword);
